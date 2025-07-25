@@ -1,12 +1,959 @@
 <!DOCTYPE html>
-<!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kenit - Sua Operação no Piloto Automático | Fórum E-commerce Brasil 2025</title>
+    <meta name="description" content="Descubra como a Kenit pode transformar sua operação com automação inteligente. Soluções para varejo, indústrias e redes de lojas.">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzIiIGhlaWdodD0iMzIiIHZpZXdCb3g9IjAgMCAzMiAzMiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjMyIiBoZWlnaHQ9IjMyIiByeD0iOCIgZmlsbD0iIzAwN0JGRiIvPgo8cGF0aCBkPSJNOCAxMkgxNlYyMEg4VjEyWiIgZmlsbD0id2hpdGUiLz4KPHA+dGggZD0iTTIwIDhIMjRWMjRIMjBWOFoiIGZpbGw9IndoaXRlIi8+Cjwvc3ZnPgo=">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary-color: #007BFF;
+            --primary-dark: #0056b3;
+            --secondary-color: #28a745;
+            --accent-color: #ff6b35;
+            --text-dark: #2c3e50;
+            --text-light: #6c757d;
+            --bg-light: #f8f9fa;
+            --bg-white: #ffffff;
+            --border-color: #e9ecef;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: var(--bg-white);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+            color: white;
+            padding: 60px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+            opacity: 0.3;
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .logo {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            letter-spacing: -1px;
+        }
+
+        .header h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .header p {
+            font-size: 1.3rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .event-badge {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 10px 20px;
+            border-radius: 50px;
+            font-weight: 600;
+            margin-bottom: 30px;
+            backdrop-filter: blur(10px);
+        }
+
+        /* Pain Points Section */
+        .pain-points {
+            padding: 80px 0;
+            background: var(--bg-light);
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: var(--text-dark);
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            color: var(--text-light);
+            margin-bottom: 60px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .pain-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        .pain-card {
+            background: var(--bg-white);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+            border-left: 5px solid var(--accent-color);
+        }
+
+        .pain-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .pain-icon {
+            font-size: 3rem;
+            color: var(--accent-color);
+            margin-bottom: 20px;
+        }
+
+        .pain-card h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: var(--text-dark);
+        }
+
+        .pain-card p {
+            color: var(--text-light);
+            line-height: 1.7;
+        }
+
+        /* Solutions Section */
+        .solutions {
+            padding: 80px 0;
+            background: var(--bg-white);
+        }
+
+        .solutions-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+
+        .solution-card {
+            background: linear-gradient(135deg, var(--bg-white) 0%, var(--bg-light) 100%);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+            border: 1px solid var(--border-color);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .solution-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+        }
+
+        .solution-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .solution-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .solution-icon {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-right: 15px;
+        }
+
+        .solution-card h3 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--text-dark);
+        }
+
+        .solution-tagline {
+            font-size: 1rem;
+            color: var(--text-light);
+            font-style: italic;
+            margin-bottom: 20px;
+        }
+
+        .solution-card p {
+            color: var(--text-light);
+            margin-bottom: 25px;
+            line-height: 1.7;
+        }
+
+        .benefits-list {
+            list-style: none;
+            margin-bottom: 30px;
+        }
+
+        .benefits-list li {
+            padding: 8px 0;
+            color: var(--text-dark);
+            position: relative;
+            padding-left: 25px;
+        }
+
+        .benefits-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--secondary-color);
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="2" fill="rgba(255,255,255,0.1)"/></svg>') repeat;
+            opacity: 0.3;
+        }
+
+        .cta-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .cta-section h2 {
+            font-size: 2.8rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .cta-section p {
+            font-size: 1.3rem;
+            margin-bottom: 40px;
+            opacity: 0.9;
+        }
+
+        /* Form Section */
+        .form-section {
+            padding: 80px 0;
+            background: var(--bg-light);
+        }
+
+        .form-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: var(--bg-white);
+            padding: 50px;
+            border-radius: 20px;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .form-title {
+            text-align: center;
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: var(--text-dark);
+        }
+
+        .form-subtitle {
+            text-align: center;
+            color: var(--text-light);
+            margin-bottom: 40px;
+            line-height: 1.6;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid var(--border-color);
+            border-radius: 10px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            background: var(--bg-white);
+        }
+
+        .form-group input:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.1);
+        }
+
+        .checkbox-group {
+            margin-bottom: 30px;
+        }
+
+        .checkbox-group label {
+            font-weight: 500;
+            margin-bottom: 15px;
+            color: var(--text-dark);
+        }
+
+        .checkbox-option {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 12px;
+            padding: 15px;
+            background: var(--bg-light);
+            border-radius: 10px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .checkbox-option:hover {
+            background: #e3f2fd;
+        }
+
+        .checkbox-option input[type="checkbox"] {
+            width: auto;
+            margin-right: 12px;
+            margin-top: 2px;
+        }
+
+        .checkbox-option span {
+            flex: 1;
+            color: var(--text-dark);
+            line-height: 1.5;
+        }
+
+        .submit-btn {
+            width: 100%;
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+            color: white;
+            padding: 18px;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .submit-btn:active {
+            transform: translateY(0);
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--text-dark);
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .footer-logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary-color);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2.2rem;
+            }
+
+            .header p {
+                font-size: 1.1rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .pain-grid,
+            .solutions-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .form-container {
+                padding: 30px 20px;
+                margin: 0 20px;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .footer-links {
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 15px;
+            }
+
+            .header {
+                padding: 40px 0;
+            }
+
+            .header h1 {
+                font-size: 1.8rem;
+            }
+
+            .pain-points,
+            .solutions,
+            .form-section {
+                padding: 50px 0;
+            }
+
+            .pain-card,
+            .solution-card {
+                padding: 25px;
+            }
+        }
+
+        /* Animation Classes */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Loading State */
+        .loading {
+            opacity: 0.7;
+            pointer-events: none;
+        }
+
+        .loading .submit-btn {
+            background: var(--text-light);
+            cursor: not-allowed;
+        }
+
+        /* Success Message */
+        .success-message {
+            display: none;
+            background: var(--secondary-color);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .success-message.show {
+            display: block;
+            animation: slideDown 0.5s ease;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
 </head>
 <body>
-  <h3>Teste</h3>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="event-badge">
+                    <i class="fas fa-calendar-alt"></i> Fórum E-commerce Brasil 2025
+                </div>
+                <div class="logo">KENIT</div>
+                <h1>Sua Operação no Piloto Automático</h1>
+                <p>Descubra como a automação inteligente pode transformar sua gestão de vendas, estoque e operações. O futuro da sua eficiência operacional começa agora.</p>
+            </div>
+        </div>
+    </header>
+
+    <!-- Pain Points Section -->
+    <section class="pain-points">
+        <div class="container">
+            <h2 class="section-title">Reconhece Esses Desafios?</h2>
+            <p class="section-subtitle">Milhares de empresas enfrentam os mesmos problemas operacionais todos os dias. Você não está sozinho.</p>
+            
+            <div class="pain-grid">
+                <div class="pain-card fade-in">
+                    <div class="pain-icon">
+                        <i class="fas fa-exclamation-triangle"></i>
+                    </div>
+                    <h3>Rupturas Constantes de Estoque</h3>
+                    <p><strong>Varejo & Redes:</strong> Produtos em falta nas prateleiras geram perda de vendas e clientes insatisfeitos. Gestores tomam decisões baseadas em "achismo" ao invés de dados reais de giro e sazonalidade.</p>
+                </div>
+
+                <div class="pain-card fade-in">
+                    <div class="pain-icon">
+                        <i class="fas fa-warehouse"></i>
+                    </div>
+                    <h3>Capital Parado em Excesso</h3>
+                    <p><strong>Indústrias & Distribuidores:</strong> Milhões investidos em produtos que não giram, ocupando espaço e gerando custos. Falta visibilidade sobre o que realmente vende em cada canal e região.</p>
+                </div>
+
+                <div class="pain-card fade-in">
+                    <div class="pain-icon">
+                        <i class="fas fa-sync-alt"></i>
+                    </div>
+                    <h3>Operação Manual e Desintegrada</h3>
+                    <p><strong>E-commerce & Marketplaces:</strong> Atualização manual de preços e estoque em múltiplos canais. Planilhas desatualizadas, erros humanos e perda de oportunidades de venda por falta de automação.</p>
+                </div>
+
+                <div class="pain-card fade-in">
+                    <div class="pain-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Precificação Sem Estratégia</h3>
+                    <p><strong>Todos os Segmentos:</strong> Preços definidos sem considerar margem, concorrência e performance real. Produtos mal posicionados nos canais digitais, perdendo competitividade e rentabilidade.</p>
+                </div>
+
+                <div class="pain-card fade-in">
+                    <div class="pain-icon">
+                        <i class="fas fa-eye-slash"></i>
+                    </div>
+                    <h3>Falta de Visibilidade Operacional</h3>
+                    <p><strong>Gestores & Executivos:</strong> Impossibilidade de acompanhar indicadores estratégicos em tempo real. Decisões importantes tomadas com informações desatualizadas ou incompletas.</p>
+                </div>
+
+                <div class="pain-card fade-in">
+                    <div class="pain-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h3>Reposição Lenta e Ineficiente</h3>
+                    <p><strong>Redes Multifiliais:</strong> Transferências entre CDs e filiais demoradas e mal planejadas. Lead time de fornecedores não considerado adequadamente, gerando desabastecimento recorrente.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solutions Section -->
+    <section class="solutions">
+        <div class="container">
+            <h2 class="section-title">As Soluções Kenit Para Seus Desafios</h2>
+            <p class="section-subtitle">Tecnologia de ponta com inteligência artificial aplicada para resolver os problemas reais do seu negócio.</p>
+            
+            <div class="solutions-grid">
+                <div class="solution-card fade-in">
+                    <div class="solution-header">
+                        <div class="solution-icon">
+                            <i class="fas fa-globe"></i>
+                        </div>
+                        <div>
+                            <h3>Kenit Hub</h3>
+                            <div class="solution-tagline">Conecte, integre, venda.</div>
+                        </div>
+                    </div>
+                    <p>Plataforma que integra marketplaces, e-commerces e ERPs, automatizando todo o fluxo de pedidos, estoque e catálogo de produtos.</p>
+                    
+                    <ul class="benefits-list">
+                        <li>Unificação de canais de venda (marketplaces + e-commerce + loja física)</li>
+                        <li>Atualização automática de estoque e preços dinâmicos</li>
+                        <li>Publicação otimizada de anúncios com base em dados de venda e margem</li>
+                        <li>Gestão de pedidos e logística reversa automatizada</li>
+                        <li>Conciliação das taxas de marketplaces e operadoras</li>
+                    </ul>
+                </div>
+
+                <div class="solution-card fade-in">
+                    <div class="solution-header">
+                        <div class="solution-icon">
+                            <i class="fas fa-brain"></i>
+                        </div>
+                        <div>
+                            <h3>Kenit SCM</h3>
+                            <div class="solution-tagline">A inteligência por trás do abastecimento ideal.</div>
+                        </div>
+                    </div>
+                    <p>Plataforma de gestão e automação de compras e reposição baseada em dados reais de vendas, estoques e sazonalidade.</p>
+                    
+                    <ul class="benefits-list">
+                        <li>Reposição automática entre CDs e filiais</li>
+                        <li>Sugestões de compras com base em demanda real e lead time</li>
+                        <li>Detecção de ruptura e excesso em tempo real</li>
+                        <li>Redução de capital parado e aumento da disponibilidade</li>
+                        <li>Dashboards estratégicos via Looker (Google Cloud)</li>
+                    </ul>
+                </div>
+
+                <div class="solution-card fade-in">
+                    <div class="solution-header">
+                        <div class="solution-icon">
+                            <i class="fas fa-rocket"></i>
+                        </div>
+                        <div>
+                            <h3>Kenit Smart Listing</h3>
+                            <div class="solution-tagline">Publicar com inteligência, vender com estratégia.</div>
+                        </div>
+                    </div>
+                    <p>Solução com inteligência artificial para análise de portfólio, definição de preços e priorização de anúncios nos canais digitais.</p>
+                    
+                    <ul class="benefits-list">
+                        <li>Análise de desempenho por SKU, canal e concorrência</li>
+                        <li>Regras de precificação automática baseadas em margem e mercado</li>
+                        <li>Diagnóstico de oportunidades de vendas por canal</li>
+                        <li>Otimização contínua da exposição do mix de produtos</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Transforme Sua Operação Hoje</h2>
+                <p>Junte-se às empresas que já descobriram o poder da automação inteligente. Deixe seus dados abaixo e nossa equipe entrará em contato para uma demonstração exclusiva.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Form Section -->
+    <section class="form-section">
+        <div class="container">
+            <div class="form-container">
+                <div class="success-message" id="successMessage">
+                    <i class="fas fa-check-circle"></i>
+                    Obrigado! Nossa equipe entrará em contato em breve para agendar sua demonstração exclusiva.
+                </div>
+                
+                <h2 class="form-title">Solicite Sua Demonstração</h2>
+                <p class="form-subtitle">Preencha os dados abaixo e descubra como a Kenit pode revolucionar sua operação com automação inteligente e inteligência artificial aplicada.</p>
+                
+                <form id="leadForm">
+                    <div class="form-group">
+                        <label for="nome">Nome Completo *</label>
+                        <input type="text" id="nome" name="nome" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">E-mail Corporativo *</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="telefone">Celular/WhatsApp *</label>
+                        <input type="tel" id="telefone" name="telefone" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="empresa">Empresa *</label>
+                        <input type="text" id="empresa" name="empresa" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="cargo">Cargo/Função</label>
+                        <input type="text" id="cargo" name="cargo">
+                    </div>
+                    
+                    <div class="checkbox-group">
+                        <label>Quais são seus maiores desafios hoje? (Selecione todos que se aplicam) *</label>
+                        
+                        <div class="checkbox-option">
+                            <input type="checkbox" id="desafio1" name="desafios" value="integracao_canais">
+                            <span>Integrar e automatizar vendas em múltiplos canais (Marketplaces, E-commerce, Loja Física)</span>
+                        </div>
+                        
+                        <div class="checkbox-option">
+                            <input type="checkbox" id="desafio2" name="desafios" value="gestao_estoque">
+                            <span>Comprar e repor estoque de forma inteligente (Evitar rupturas e excesso)</span>
+                        </div>
+                        
+                        <div class="checkbox-option">
+                            <input type="checkbox" id="desafio3" name="desafios" value="precificacao">
+                            <span>Definir preços e anúncios que maximizem lucro e competitividade</span>
+                        </div>
+                        
+                        <div class="checkbox-option">
+                            <input type="checkbox" id="desafio4" name="desafios" value="visibilidade">
+                            <span>Ter visibilidade e controle total sobre operações e indicadores</span>
+                        </div>
+                        
+                        <div class="checkbox-option">
+                            <input type="checkbox" id="desafio5" name="desafios" value="reposicao">
+                            <span>Automatizar reposição entre CDs, filiais e fornecedores</span>
+                        </div>
+                        
+                        <div class="checkbox-option">
+                            <input type="checkbox" id="desafio6" name="desafios" value="outros">
+                            <span>Outros desafios operacionais</span>
+                        </div>
+                    </div>
+                    
+                    <button type="submit" class="submit-btn">
+                        <i class="fas fa-rocket"></i>
+                        Quero Minha Demonstração
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">KENIT</div>
+                <div class="footer-links">
+                    <a href="#" target="_blank">LinkedIn</a>
+                    <a href="#" target="_blank">Site Oficial</a>
+                    <a href="#" target="_blank">Contato</a>
+                </div>
+            </div>
+            <div style="text-align: center; margin-top: 20px; padding-top: 20px; border-top: 1px solid #495057;">
+                <p>&copy; 2025 Kenit. Todos os direitos reservados. | Automação Inteligente para Gestão de Suprimentos e Vendas</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling and animations
+        document.addEventListener('DOMContentLoaded', function() {
+            // Intersection Observer for fade-in animations
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, observerOptions);
+
+            // Observe all fade-in elements
+            document.querySelectorAll('.fade-in').forEach(el => {
+                observer.observe(el);
+            });
+
+            // Form submission
+            const form = document.getElementById('leadForm');
+            const successMessage = document.getElementById('successMessage');
+            const submitBtn = form.querySelector('.submit-btn');
+
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Validate required fields
+                const requiredFields = form.querySelectorAll('input[required]');
+                let isValid = true;
+                
+                requiredFields.forEach(field => {
+                    if (!field.value.trim()) {
+                        isValid = false;
+                        field.style.borderColor = '#dc3545';
+                    } else {
+                        field.style.borderColor = '#28a745';
+                    }
+                });
+
+                // Validate at least one challenge is selected
+                const challenges = form.querySelectorAll('input[name="desafios"]:checked');
+                if (challenges.length === 0) {
+                    isValid = false;
+                    alert('Por favor, selecione pelo menos um desafio.');
+                    return;
+                }
+
+                if (!isValid) {
+                    alert('Por favor, preencha todos os campos obrigatórios.');
+                    return;
+                }
+
+                // Show loading state
+                form.classList.add('loading');
+                submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Enviando...';
+
+                // Simulate form submission (replace with actual API call)
+                setTimeout(() => {
+                    // Hide form and show success message
+                    form.style.display = 'none';
+                    successMessage.classList.add('show');
+                    
+                    // Scroll to success message
+                    successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    
+                    // Here you would typically send the data to your backend
+                    console.log('Form data:', new FormData(form));
+                    
+                }, 2000);
+            });
+
+            // Phone number formatting
+            const phoneInput = document.getElementById('telefone');
+            phoneInput.addEventListener('input', function(e) {
+                let value = e.target.value.replace(/\D/g, '');
+                if (value.length <= 11) {
+                    value = value.replace(/(\d{2})(\d{5})(\d{4})/, '($1) $2-$3');
+                    if (value.length < 14) {
+                        value = value.replace(/(\d{2})(\d{4})(\d{4})/, '($1) $2-$3');
+                    }
+                }
+                e.target.value = value;
+            });
+
+            // Email validation
+            const emailInput = document.getElementById('email');
+            emailInput.addEventListener('blur', function(e) {
+                const email = e.target.value;
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                
+                if (email && !emailRegex.test(email)) {
+                    e.target.style.borderColor = '#dc3545';
+                } else if (email) {
+                    e.target.style.borderColor = '#28a745';
+                }
+            });
+
+            // Smooth scroll for internal links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+        });
+
+        // Add some interactive hover effects
+        document.addEventListener('DOMContentLoaded', function() {
+            const cards = document.querySelectorAll('.pain-card, .solution-card');
+            
+            cards.forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-8px) scale(1.02)';
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0) scale(1)';
+                });
+            });
+        });
+    </script>
 </body>
 </html>
