@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kenit - Sua Operação no Piloto Automático | Fórum E-commerce Brasil 2025</title>
-    <meta name="description" content="Descubra como a Kenit pode transformar sua operação com automação inteligente. Soluções para varejo, indústrias e redes de lojas.">
+    <meta name="description" content="Comprar bem é sobrevivência. Vender bem é crescimento. A Kenit automatiza compras e vendas com inteligência real para varejo, indústrias e redes.">
     
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzIiIGhlaWdodD0iMzIiIHZpZXdCb3g9IjAgMCAzMiAzMiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjMyIiBoZWlnaHQ9IjMyIiByeD0iOCIgZmlsbD0iIzAwN0JGRiIvPgo8cGF0aCBkPSJNOCAxMkgxNlYyMEg4VjEyWiIgZmlsbD0id2hpdGUiLz4KPHA+dGggZD0iTTIwIDhIMjRWMjRIMjBWOFoiIGZpbGw9IndoaXRlIi8+Cjwvc3ZnPgo=">
@@ -21,6 +21,8 @@
             --primary-dark: #0056b3;
             --secondary-color: #28a745;
             --accent-color: #ff6b35;
+            --warning-color: #ffc107;
+            --danger-color: #dc3545;
             --text-dark: #2c3e50;
             --text-light: #6c757d;
             --bg-light: #f8f9fa;
@@ -82,6 +84,32 @@
             letter-spacing: -1px;
         }
 
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+            color: white;
+            padding: 60px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+            opacity: 0.3;
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 2;
+        }
+
         .header h1 {
             font-size: 3rem;
             font-weight: 700;
@@ -91,11 +119,18 @@
 
         .header p {
             font-size: 1.3rem;
-            margin-bottom: 30px;
+            margin-bottom: 20px;
             opacity: 0.9;
             max-width: 800px;
             margin-left: auto;
             margin-right: auto;
+        }
+
+        .header .subtitle {
+            font-size: 1rem;
+            opacity: 0.8;
+            margin-top: -15px;
+            margin-bottom: 30px;
         }
 
         .event-badge {
@@ -106,6 +141,38 @@
             font-weight: 600;
             margin-bottom: 30px;
             backdrop-filter: blur(10px);
+        }
+
+        /* Stats Section */
+        .stats-section {
+            background: var(--bg-white);
+            padding: 60px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            text-align: center;
+        }
+
+        .stat-item {
+            padding: 20px;
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            font-weight: 500;
         }
 
         /* Pain Points Section */
@@ -145,7 +212,8 @@
             border-radius: 15px;
             box-shadow: var(--shadow);
             transition: all 0.3s ease;
-            border-left: 5px solid var(--accent-color);
+            border-left: 5px solid var(--danger-color);
+            position: relative;
         }
 
         .pain-card:hover {
@@ -155,7 +223,7 @@
 
         .pain-icon {
             font-size: 3rem;
-            color: var(--accent-color);
+            color: var(--danger-color);
             margin-bottom: 20px;
         }
 
@@ -169,6 +237,41 @@
         .pain-card p {
             color: var(--text-light);
             line-height: 1.7;
+            font-size: 1rem;
+        }
+
+        /* Market Data Section */
+        .market-data {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .market-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .market-stat {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+        }
+
+        .market-stat-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--warning-color);
+            margin-bottom: 10px;
+        }
+
+        .market-stat-label {
+            font-size: 1.1rem;
+            opacity: 0.9;
         }
 
         /* Solutions Section */
@@ -479,6 +582,11 @@
                 grid-template-columns: 1fr;
             }
 
+            .stats-grid,
+            .market-stats {
+                grid-template-columns: 1fr;
+            }
+
             .form-container {
                 padding: 30px 20px;
                 margin: 0 20px;
@@ -581,64 +689,128 @@
                 </div>
                 <div class="logo">KENIT</div>
                 <h1>Sua Operação no Piloto Automático</h1>
-                <p>Descubra como a automação inteligente pode transformar sua gestão de vendas, estoque e operações. O futuro da sua eficiência operacional começa agora.</p>
+                <p>
+                    Comprar bem é sobrevivência. Vender bem é crescimento. A Kenit nasceu para ser o cérebro entre esses dois mundos. Automatizamos compras e vendas com inteligência real, conectando o que o seu ERP não enxerga.
+                </p>
+                <p class="subtitle">
+                    ⭐ Atendendo operações com +50 mil SKUs e milhares de pedidos mensais.
+                </p>
             </div>
         </div>
     </header>
 
+    <!-- Stats Section -->
+    <section class="stats-section">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <span class="stat-number">R$ 2,3bi</span>
+                    <div class="stat-label">Em vendas processadas anualmente</div>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">+50k</span>
+                    <div class="stat-label">SKUs gerenciados ativamente</div>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">35%</span>
+                    <div class="stat-label">Redução média em estoque parado</div>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">98%</span>
+                    <div class="stat-label">Disponibilidade de produtos</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Market Data Section -->
+    <section class="market-data">
+        <div class="container">
+            <h2 class="section-title" style="color: white;">O Varejo Nacional Está Sangrando Dinheiro</h2>
+            <p class="section-subtitle" style="color: rgba(255,255,255,0.8);">Dados reais do mercado brasileiro mostram o tamanho do problema que a Kenit resolve.</p>
+            
+            <div class="market-stats">
+                <div class="market-stat">
+                    <div class="market-stat-number">23%</div>
+                    <div class="market-stat-label">Das empresas operam com margem líquida negativa</div>
+                </div>
+                <div class="market-stat">
+                    <div class="market-stat-number">R$ 180bi</div>
+                    <div class="market-stat-label">Imobilizados em estoque parado no varejo brasileiro</div>
+                </div>
+                <div class="market-stat">
+                    <div class="market-stat-number">40%</div>
+                    <div class="market-stat-label">Das rupturas poderiam ser evitadas com gestão inteligente</div>
+                </div>
+                <div class="market-stat">
+                    <div class="market-stat-number">67%</div>
+                    <div class="market-stat-label">Das operações ainda dependem de planilhas manuais</div>
+                </div>
+                <div class="market-stat">
+                    <div class="market-stat-number">R$ 45bi</div>
+                    <div class="market-stat-label">Perdidos anualmente por erros de apuração e conciliação</div>
+                </div>
+                <div class="market-stat">
+                    <div class="market-stat-number">78%</div>
+                    <div class="market-stat-label">Das empresas não conseguem prever demanda com precisão</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Pain Points Section -->
     <section class="pain-points">
         <div class="container">
-            <h2 class="section-title">Reconhece Esses Desafios?</h2>
-            <p class="section-subtitle">Milhares de empresas enfrentam os mesmos problemas operacionais todos os dias. Você não está sozinho.</p>
+            <h2 class="section-title">Sente Isso Aí?</h2>
+            <p class="section-subtitle">Esses problemas estão sugando margens e energia da sua equipe todos os dias.</p>
             
             <div class="pain-grid">
                 <div class="pain-card fade-in">
                     <div class="pain-icon">
-                        <i class="fas fa-exclamation-triangle"></i>
+                        <i class="fas fa-money-bill-wave"></i>
                     </div>
-                    <h3>Rupturas Constantes de Estoque</h3>
-                    <p><strong>Varejo & Redes:</strong> Produtos em falta nas prateleiras geram perda de vendas e clientes insatisfeitos. Gestores tomam decisões baseadas em "achismo" ao invés de dados reais de giro e sazonalidade.</p>
+                    <h3>Compra errada custa caro</h3>
+                    <p>Prazo de entrega longo. Pedido grande demais. Giro que ninguém conferiu. Resultado: produto encalhado por 4 meses. A Kenit evita isso prevendo o que você vai precisar e quanto comprar.</p>
                 </div>
 
                 <div class="pain-card fade-in">
                     <div class="pain-icon">
-                        <i class="fas fa-warehouse"></i>
+                        <i class="fas fa-boxes"></i>
                     </div>
-                    <h3>Capital Parado em Excesso</h3>
-                    <p><strong>Indústrias & Distribuidores:</strong> Milhões investidos em produtos que não giram, ocupando espaço e gerando custos. Falta visibilidade sobre o que realmente vende em cada canal e região.</p>
+                    <h3>Estoque parado não dá lucro</h3>
+                    <p>Se você gasta mais comprando do que fatura vendendo, a Kenit vai te ajudar. Ela cruza estoque, sazonalidade, vendas e entrega para sugerir o que vale a pena estocar de verdade.</p>
                 </div>
 
                 <div class="pain-card fade-in">
                     <div class="pain-icon">
-                        <i class="fas fa-sync-alt"></i>
+                        <i class="fas fa-tags"></i>
                     </div>
-                    <h3>Operação Manual e Desintegrada</h3>
-                    <p><strong>E-commerce & Marketplaces:</strong> Atualização manual de preços e estoque em múltiplos canais. Planilhas desatualizadas, erros humanos e perda de oportunidades de venda por falta de automação.</p>
+                    <h3>Preço errado derruba tudo</h3>
+                    <p>Ou você está vendendo com prejuízo ou está perdendo vendas por estar caro demais. A Kenit analisa mercado, concorrência e margem para acertar preço e ganhar share com lucro.</p>
+                </div>
+
+                <div class="pain-card fade-in">
+                    <div class="pain-icon">
+                        <i class="fas fa-dolly"></i>
+                    </div>
+                    <h3>Reposição lenta, loja vazia</h3>
+                    <p>Filiais ou CDs pedem socorro, mas o pedido fica travado. A Kenit automatiza a reposição entre unidades com base no giro real e evita ruptura na ponta.</p>
+                </div>
+
+                <div class="pain-card fade-in">
+                    <div class="pain-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h3>Operacional travando a estratégia</h3>
+                    <p>Gente demais atualizando planilha. Ninguém vendo o todo. A Kenit assume as tarefas repetitivas e libera seu time para pensar no que importa.</p>
                 </div>
 
                 <div class="pain-card fade-in">
                     <div class="pain-icon">
                         <i class="fas fa-chart-line"></i>
                     </div>
-                    <h3>Precificação Sem Estratégia</h3>
-                    <p><strong>Todos os Segmentos:</strong> Preços definidos sem considerar margem, concorrência e performance real. Produtos mal posicionados nos canais digitais, perdendo competitividade e rentabilidade.</p>
-                </div>
-
-                <div class="pain-card fade-in">
-                    <div class="pain-icon">
-                        <i class="fas fa-eye-slash"></i>
-                    </div>
-                    <h3>Falta de Visibilidade Operacional</h3>
-                    <p><strong>Gestores & Executivos:</strong> Impossibilidade de acompanhar indicadores estratégicos em tempo real. Decisões importantes tomadas com informações desatualizadas ou incompletas.</p>
-                </div>
-
-                <div class="pain-card fade-in">
-                    <div class="pain-icon">
-                        <i class="fas fa-clock"></i>
-                    </div>
-                    <h3>Reposição Lenta e Ineficiente</h3>
-                    <p><strong>Redes Multifiliais:</strong> Transferências entre CDs e filiais demoradas e mal planejadas. Lead time de fornecedores não considerado adequadamente, gerando desabastecimento recorrente.</p>
+                    <h3>Margem sendo corroída silenciosamente</h3>
+                    <p>Promoções sem critério, preços desatualizados, mix de produtos errado. Cada venda pode estar gerando prejuízo e você só descobre no final do mês. A Kenit monitora e protege sua margem em tempo real.</p>
                 </div>
             </div>
         </div>
@@ -647,31 +819,10 @@
     <!-- Solutions Section -->
     <section class="solutions">
         <div class="container">
-            <h2 class="section-title">As Soluções Kenit Para Seus Desafios</h2>
-            <p class="section-subtitle">Tecnologia de ponta com inteligência artificial aplicada para resolver os problemas reais do seu negócio.</p>
+            <h2 class="section-title">Do Pedido ao Lucro: a Kenit no Controle</h2>
+            <p class="section-subtitle">Nossas soluções seguem o fluxo natural de quem compra para vender melhor. A diferença é que fazemos isso com IA.</p>
             
             <div class="solutions-grid">
-                <div class="solution-card fade-in">
-                    <div class="solution-header">
-                        <div class="solution-icon">
-                            <i class="fas fa-globe"></i>
-                        </div>
-                        <div>
-                            <h3>Kenit Hub</h3>
-                            <div class="solution-tagline">Conecte, integre, venda.</div>
-                        </div>
-                    </div>
-                    <p>Plataforma que integra marketplaces, e-commerces e ERPs, automatizando todo o fluxo de pedidos, estoque e catálogo de produtos.</p>
-                    
-                    <ul class="benefits-list">
-                        <li>Unificação de canais de venda (marketplaces + e-commerce + loja física)</li>
-                        <li>Atualização automática de estoque e preços dinâmicos</li>
-                        <li>Publicação otimizada de anúncios com base em dados de venda e margem</li>
-                        <li>Gestão de pedidos e logística reversa automatizada</li>
-                        <li>Conciliação das taxas de marketplaces e operadoras</li>
-                    </ul>
-                </div>
-
                 <div class="solution-card fade-in">
                     <div class="solution-header">
                         <div class="solution-icon">
@@ -679,17 +830,38 @@
                         </div>
                         <div>
                             <h3>Kenit SCM</h3>
-                            <div class="solution-tagline">A inteligência por trás do abastecimento ideal.</div>
+                            <div class="solution-tagline">Comprar bem com dados.</div>
                         </div>
                     </div>
-                    <p>Plataforma de gestão e automação de compras e reposição baseada em dados reais de vendas, estoques e sazonalidade.</p>
+                    <p>Planejamento de compras e reposição com IA. A Kenit prevê a demanda antes da ruptura e diz o que você deve comprar, quanto e de quem, com base em giro, margem, lead time e sazonalidade.</p>
                     
                     <ul class="benefits-list">
-                        <li>Reposição automática entre CDs e filiais</li>
-                        <li>Sugestões de compras com base em demanda real e lead time</li>
-                        <li>Detecção de ruptura e excesso em tempo real</li>
-                        <li>Redução de capital parado e aumento da disponibilidade</li>
+                        <li>Prevê demanda antes da ruptura acontecer</li>
+                        <li>Executa compras e reposições baseadas em giro</li>
+                        <li>Visualiza saving, ruptura e excesso por item</li>
+                        <li>Reduz capital parado em até 35%</li>
                         <li>Dashboards estratégicos via Looker (Google Cloud)</li>
+                    </ul>
+                </div>
+
+                <div class="solution-card fade-in">
+                    <div class="solution-header">
+                        <div class="solution-icon">
+                            <i class="fas fa-globe"></i>
+                        </div>
+                        <div>
+                            <h3>Kenit Hub</h3>
+                            <div class="solution-tagline">Orquestração inteligente entre canais.</div>
+                        </div>
+                    </div>
+                    <p>Sincroniza ERP, e-commerce, marketplaces e lojas físicas. Gerencia suas vendas automaticamente em todos os canais com estoque e preços sempre atualizados.</p>
+                    
+                    <ul class="benefits-list">
+                        <li>Sincroniza ERP com todos os canais de venda</li>
+                        <li>Catálogo automatizado e dinâmico</li>
+                        <li>Concilia vendas e taxas automaticamente</li>
+                        <li>Menos retrabalho, menos erro humano</li>
+                        <li>Gestão de pedidos e logística reversa</li>
                     </ul>
                 </div>
 
@@ -700,16 +872,17 @@
                         </div>
                         <div>
                             <h3>Kenit Smart Listing</h3>
-                            <div class="solution-tagline">Publicar com inteligência, vender com estratégia.</div>
+                            <div class="solution-tagline">Preços inteligentes, produtos ranqueados.</div>
                         </div>
                     </div>
-                    <p>Solução com inteligência artificial para análise de portfólio, definição de preços e priorização de anúncios nos canais digitais.</p>
+                    <p>Ajusta preços automaticamente por canal e margem. Publica e ranqueia produtos automaticamente com base em performance, concorrência e rentabilidade.</p>
                     
                     <ul class="benefits-list">
-                        <li>Análise de desempenho por SKU, canal e concorrência</li>
-                        <li>Regras de precificação automática baseadas em margem e mercado</li>
-                        <li>Diagnóstico de oportunidades de vendas por canal</li>
-                        <li>Otimização contínua da exposição do mix de produtos</li>
+                        <li>Ajusta preços dinamicamente (+margem, -concorrência)</li>
+                        <li>Publica e ranqueia produtos automaticamente</li>
+                        <li>Evita promoções que corroem margem</li>
+                        <li>Análise de concorrência em tempo real</li>
+                        <li>Otimização contínua do mix de produtos</li>
                     </ul>
                 </div>
             </div>
@@ -720,8 +893,8 @@
     <section class="cta-section">
         <div class="container">
             <div class="cta-content">
-                <h2>Transforme Sua Operação Hoje</h2>
-                <p>Junte-se às empresas que já descobriram o poder da automação inteligente. Deixe seus dados abaixo e nossa equipe entrará em contato para uma demonstração exclusiva.</p>
+                <h2>Transforme sua operação com inteligência artificial</h2>
+                <p>Já ajudamos grandes varejistas a reduzir rupturas, melhorar margens e integrar canais com decisões automáticas baseadas em dados. Descubra como essa nova camada de decisão funciona.</p>
             </div>
         </div>
     </section>
@@ -768,28 +941,28 @@
                         <label>Quais são seus maiores desafios hoje? (Selecione todos que se aplicam) *</label>
                         
                         <div class="checkbox-option">
-                            <input type="checkbox" id="desafio1" name="desafios" value="integracao_canais">
+                            <input type="checkbox" id="desafio1" name="desafios" value="compras_inteligentes">
+                            <span>Comprar de forma mais inteligente (evitar estoque parado e rupturas)</span>
+                        </div>
+                        
+                        <div class="checkbox-option">
+                            <input type="checkbox" id="desafio2" name="desafios" value="integracao_canais">
                             <span>Integrar e automatizar vendas em múltiplos canais (Marketplaces, E-commerce, Loja Física)</span>
                         </div>
                         
                         <div class="checkbox-option">
-                            <input type="checkbox" id="desafio2" name="desafios" value="gestao_estoque">
-                            <span>Comprar e repor estoque de forma inteligente (Evitar rupturas e excesso)</span>
+                            <input type="checkbox" id="desafio3" name="desafios" value="precificacao_margem">
+                            <span>Definir preços que maximizem lucro sem perder competitividade</span>
                         </div>
                         
                         <div class="checkbox-option">
-                            <input type="checkbox" id="desafio3" name="desafios" value="precificacao">
-                            <span>Definir preços e anúncios que maximizem lucro e competitividade</span>
-                        </div>
-                        
-                        <div class="checkbox-option">
-                            <input type="checkbox" id="desafio4" name="desafios" value="visibilidade">
-                            <span>Ter visibilidade e controle total sobre operações e indicadores</span>
-                        </div>
-                        
-                        <div class="checkbox-option">
-                            <input type="checkbox" id="desafio5" name="desafios" value="reposicao">
+                            <input type="checkbox" id="desafio4" name="desafios" value="reposicao_automatica">
                             <span>Automatizar reposição entre CDs, filiais e fornecedores</span>
+                        </div>
+                        
+                        <div class="checkbox-option">
+                            <input type="checkbox" id="desafio5" name="desafios" value="visibilidade_operacional">
+                            <span>Ter visibilidade e controle total sobre operações e indicadores</span>
                         </div>
                         
                         <div class="checkbox-option">
@@ -819,7 +992,7 @@
                 </div>
             </div>
             <div style="text-align: center; margin-top: 20px; padding-top: 20px; border-top: 1px solid #495057;">
-                <p>&copy; 2025 Kenit. Todos os direitos reservados. | Automação Inteligente para Gestão de Suprimentos e Vendas</p>
+                <p>&copy; 2025 Kenit. Todos os direitos reservados. | Comprar bem é sobrevivência. Vender bem é crescimento.</p>
             </div>
         </div>
     </footer>
@@ -957,3 +1130,4 @@
     </script>
 </body>
 </html>
+
