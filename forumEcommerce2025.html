@@ -939,36 +939,36 @@
                     
                     <div class="checkbox-group">
                         <label>Quais são seus maiores desafios hoje? (Selecione todos que se aplicam) *</label>
-                        
-                        <div class="checkbox-option">
-                            <input type="checkbox" id="desafio1" name="desafios" value="compras_inteligentes">
+
+                        <label class="checkbox-option">
+                            <input type="checkbox" name="desafios" value="compras_inteligentes">
                             <span>Comprar de forma mais inteligente (evitar estoque parado e rupturas)</span>
-                        </div>
-                        
-                        <div class="checkbox-option">
-                            <input type="checkbox" id="desafio2" name="desafios" value="integracao_canais">
+                        </label>
+
+                        <label class="checkbox-option">
+                            <input type="checkbox" name="desafios" value="integracao_canais">
                             <span>Integrar e automatizar vendas em múltiplos canais (Marketplaces, E-commerce, Loja Física)</span>
-                        </div>
-                        
-                        <div class="checkbox-option">
-                            <input type="checkbox" id="desafio3" name="desafios" value="precificacao_margem">
+                        </label>
+
+                        <label class="checkbox-option">
+                            <input type="checkbox" name="desafios" value="precificacao_margem">
                             <span>Definir preços que maximizem lucro sem perder competitividade</span>
-                        </div>
-                        
-                        <div class="checkbox-option">
-                            <input type="checkbox" id="desafio4" name="desafios" value="reposicao_automatica">
+                        </label>
+
+                        <label class="checkbox-option">
+                            <input type="checkbox" name="desafios" value="reposicao_automatica">
                             <span>Automatizar reposição entre CDs, filiais e fornecedores</span>
-                        </div>
-                        
-                        <div class="checkbox-option">
-                            <input type="checkbox" id="desafio5" name="desafios" value="visibilidade_operacional">
+                        </label>
+
+                        <label class="checkbox-option">
+                            <input type="checkbox" name="desafios" value="visibilidade_operacional">
                             <span>Ter visibilidade e controle total sobre operações e indicadores</span>
-                        </div>
-                        
-                        <div class="checkbox-option">
-                            <input type="checkbox" id="desafio6" name="desafios" value="outros">
+                        </label>
+
+                        <label class="checkbox-option">
+                            <input type="checkbox" name="desafios" value="outros">
                             <span>Outros desafios operacionais</span>
-                        </div>
+                        </label>
                     </div>
                     
                     <button type="submit" class="submit-btn">
@@ -999,14 +999,14 @@
 
     <script>
         // Smooth scrolling and animations
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             // Intersection Observer for fade-in animations
             const observerOptions = {
                 threshold: 0.1,
                 rootMargin: '0px 0px -50px 0px'
             };
 
-            const observer = new IntersectionObserver(function(entries) {
+            const observer = new IntersectionObserver(function (entries) {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
                         entry.target.classList.add('visible');
@@ -1024,13 +1024,13 @@
             const successMessage = document.getElementById('successMessage');
             const submitBtn = form.querySelector('.submit-btn');
 
-            form.addEventListener('submit', function(e) {
+            form.addEventListener('submit', function (e) {
                 e.preventDefault();
-                
+
                 // Validate required fields
                 const requiredFields = form.querySelectorAll('input[required]');
                 let isValid = true;
-                
+
                 requiredFields.forEach(field => {
                     if (!field.value.trim()) {
                         isValid = false;
@@ -1057,24 +1057,39 @@
                 form.classList.add('loading');
                 submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Enviando...';
 
-                // Simulate form submission (replace with actual API call)
-                setTimeout(() => {
-                    // Hide form and show success message
-                    form.style.display = 'none';
-                    successMessage.classList.add('show');
-                    
-                    // Scroll to success message
-                    successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                    
-                    // Here you would typically send the data to your backend
-                    console.log('Form data:', new FormData(form));
-                    
-                }, 2000);
+                const formData = new FormData(e.target);
+
+                const data = {
+                    nome: formData.get('nome'),
+                    email: formData.get('email'),
+                    telefone: formData.get('telefone'),
+                    empresa: formData.get('empresa'),
+                    cargo: formData.get('cargo'),
+                    desafios: formData.getAll('desafios')
+                };
+
+                fetch('https://api.kenitsupply.com.br/oapi/send', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(data)
+                })
+                    .then(res => res.json())
+                    .then(response => {
+                        form.style.display = 'none';
+                        successMessage.classList.add('show');
+                        successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                        // alert(response.message);
+                        form.reset();
+                    })
+                    .catch(err => {
+                        // alert('Erro ao enviar formulário');
+                        console.error(err);
+                    });
             });
 
             // Phone number formatting
             const phoneInput = document.getElementById('telefone');
-            phoneInput.addEventListener('input', function(e) {
+            phoneInput.addEventListener('input', function (e) {
                 let value = e.target.value.replace(/\D/g, '');
                 if (value.length <= 11) {
                     value = value.replace(/(\d{2})(\d{5})(\d{4})/, '($1) $2-$3');
@@ -1087,10 +1102,10 @@
 
             // Email validation
             const emailInput = document.getElementById('email');
-            emailInput.addEventListener('blur', function(e) {
+            emailInput.addEventListener('blur', function (e) {
                 const email = e.target.value;
                 const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-                
+
                 if (email && !emailRegex.test(email)) {
                     e.target.style.borderColor = '#dc3545';
                 } else if (email) {
@@ -1114,15 +1129,15 @@
         });
 
         // Add some interactive hover effects
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             const cards = document.querySelectorAll('.pain-card, .solution-card');
-            
+
             cards.forEach(card => {
-                card.addEventListener('mouseenter', function() {
+                card.addEventListener('mouseenter', function () {
                     this.style.transform = 'translateY(-8px) scale(1.02)';
                 });
-                
-                card.addEventListener('mouseleave', function() {
+
+                card.addEventListener('mouseleave', function () {
                     this.style.transform = 'translateY(0) scale(1)';
                 });
             });
